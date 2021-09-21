@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 800,
+  "height": 600,
+  "title": "Global Peace Index of Each Country",
+
+  "projection": { "type": "equalEarth" },
+  "layer": [
+    {
+      "data": {
+        "url": "",
+        "format": { "type": "topojson", "feature": "custom.geo" }
+      },
+      "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
+    }
+  ]
+}
