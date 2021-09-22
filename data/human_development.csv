@@ -1,4 +1,4 @@
-HDI Rank,Country,Human Development Index (HDI),Life Expectancy at Birth,Expected Years of Education,Mean_Years_of_Education,Gross National Income (GNI) per Capita,GNI per Capita Rank Minus HDI Rank
+HDI Rank,Country,Human Development Index (HDI),Life Expectancy at Birth,Expected Years of Education,Mean_Years_of_Education,GNI_per_Capita,GNI per Capita Rank Minus HDI Rank
 1,Norway,0.944,81.6,17.5,12.6,"64,992",5
 2,Australia,0.935,82.4,20.2,13.0,"42,261",17
 3,Switzerland,0.930,83.0,15.8,12.8,"56,431",6
