@@ -23,12 +23,12 @@
             "fields": ["GDP"]
           }
         },
-        {"calculate": "datum.GDP+ 0.1", "as": "GDP ($ per capita)"}
+        {"calculate": "datum.GDP + 0.1", "as": "GDP ($ per capita)"}
       ],
       "mark": { "type": "geoshape" },
       "encoding": {
         "color":{
-          "field": "GDP",
+          "field": "GDP ($ per capita)",
           "type": "quantitative",
           "scale":{"type": "log"}
         },
