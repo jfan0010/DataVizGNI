@@ -29,19 +29,19 @@
             <h4>Student ID: 29627923</h4>
         </div>
         <div class="row">
-            <p> hello world</p>
+            <!-- First map for homework week 9 -->
+            <div id="choropleth_map"></div>
+            <script type="text/javascript">
+                var spec2 = "js/first_map.vg.json";
+                vegaEmbed('#choropleth_map', spec2).then(function (result) {
+                }).catch(console.error);
+            </script>
         </div>
     </div>
 
 
 
-    <!-- First map for homework week 9 -->
-    <div id="choropleth_map"></div>
-    <script type="text/javascript">
-        var spec2 = "js/first_map.vg.json";
-        vegaEmbed('#choropleth_map', spec2).then(function (result) {
-        }).catch(console.error);
-    </script>
+
 
     <!-- This script is for Bootstrap. Please place it right before `body` tag. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
