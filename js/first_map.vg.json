@@ -3,9 +3,10 @@
 
   "width": 800,
   "height": 600,
-  "title": "Global Peace Index of Each Country",
+  "title": "Mean Year of Education in Each Country",
 
   "projection": { "type": "equirectangular" },
+  
   "layer": [
     {
       "data": {
@@ -20,21 +21,22 @@
               "url": "https://raw.githubusercontent.com/jfan0010/FIT3179DataViz2/main/data/human_development.csv"
             },
             "key": "Country",
-            "fields": ["Mean_Years_of_Education"]
+            "fields": ["Mean_Years_of_Education", "GNI"]
           }
         },
-        {"calculate": "datum.Mean_Years_of_Education + 0.1", "as": "Mean Years of Education"}
+        {"calculate": "datum.Mean_Years_of_Education + 1", "as": "GNI per Capita"}
       ],
       "mark": { "type": "geoshape" },
       "encoding": {
         "color":{
-          "field": "Mean Years of Education",
+          "field": "GNI per Capita",
           "type": "quantitative",
-          "scale":{"type": "log"}
+          "scale":{"type": "linear"}
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Mean_Years_of_Education", "type": "quantitative"}
+          {"field": "Mean_Years_of_Education", "type": "quantitative"},
+          {"field": "GNI", "type": "quantitative"}
         ]
       }
     }
