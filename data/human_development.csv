@@ -49,7 +49,7 @@ HDI Rank,Country,Human Development Index (HDI),Life Expectancy at Birth,Expected
 48,Kuwait,0.816,74.4,14.7,7.2,"83,961",-46
 49,Montenegro,0.802,76.2,15.2,11.2,"14,558",27
 50,Belarus,0.798,71.3,15.7,12.0,"16,676",14
-50,Russian Federation,0.798,70.1,14.7,12.0,"22,352",-1
+50,Russia,0.798,70.1,14.7,12.0,"22,352",-1
 52,Oman,0.793,76.8,13.6,8.0,"34,858",-23
 52,Romania,0.793,74.7,14.2,10.8,"18,108",10
 52,Uruguay,0.793,77.2,15.5,8.5,"19,283",7
@@ -174,7 +174,7 @@ HDI Rank,Country,Human Development Index (HDI),Life Expectancy at Birth,Expected
 173,Malawi,0.445,62.8,10.8,4.3,747,13
 174,Ethiopia,0.442,64.1,8.5,2.4,"1,428",2
 175,Gambia,0.441,60.2,8.8,2.8,"1,507",-2
-176,Congo,0.433,58.7,9.8,6.0,680,11
+176,Dem. Rep. Congo,0.433,58.7,9.8,6.0,680,11
 177,Liberia,0.430,60.9,9.5,4.1,805,7
 178,Guinea-Bissau,0.420,55.2,9.0,2.8,"1,362",-1
 179,Mali,0.419,58.0,8.4,2.0,"1,583",-8
