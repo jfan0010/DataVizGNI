@@ -132,7 +132,7 @@ HDI Rank,Country,Human Development Index (HDI),Life Expectancy at Birth,Expected
 131,Honduras,0.606,73.1,11.1,5.5,"3,938",7
 132,Bhutan,0.605,69.5,12.6,3.0,"7,176",-17
 133,Timor-Leste,0.595,68.2,11.7,4.4,"5,363",-6
-134,Syrian Arab Republic,0.594,69.6,12.3,6.3,"2,728",21
+134,Syria,0.594,69.6,12.3,6.3,"2,728",21
 134,Vanuatu,0.594,71.9,10.6,6.8,"2,803",19
 136,Congo,0.591,62.3,11.1,6.1,"6,012",-14
 137,Kiribati,0.590,66.0,12.3,7.8,"2,434",21
@@ -185,7 +185,7 @@ HDI Rank,Country,Human Development Index (HDI),Life Expectancy at Birth,Expected
 184,Burundi,0.400,56.7,10.1,2.7,758,1
 185,Chad,0.392,51.6,7.4,1.9,"2,085",-22
 186,Eritrea,0.391,63.7,4.1,3.9,"1,130",-6
-187,Central African Republic,0.350,50.7,7.2,4.2,581,1
+187,Central African Rep.,0.350,50.7,7.2,4.2,581,1
 188,Niger,0.348,61.4,5.4,1.5,908,-5
 ,Arab States,0.686,70.6,12.0,6.4,"15,722",
 ,East Asia and the Pacific,0.710,74.0,12.7,7.5,"11,449",
