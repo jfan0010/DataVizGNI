@@ -43,7 +43,9 @@
         "color": {
           "field": "GNI",
           "type": "quantitative",
-          "scale": { "type": "log" },
+          "scale": {
+            "type": "log"
+          },
           "title": "GNI per Capita"
         },
         "tooltip": [
