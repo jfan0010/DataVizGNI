@@ -36,12 +36,13 @@
             "key": "Country",
             "fields": ["Mean_Years_of_Education", "GNI"]
           }
-        }
+        },
+        {"calculate": "datum.GNI + 0.1", "as": "adjustGNI"}
       ],
       "mark": { "type": "geoshape", "stroke": "white" },
       "encoding": {
         "color": {
-          "field": "GNI",
+          "field": "adjustGNI",
           "type": "quantitative",
           "scale": {
             "type": "log"
