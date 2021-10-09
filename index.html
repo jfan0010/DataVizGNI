@@ -34,8 +34,8 @@
             <!-- First map from homework week 9 -->
             <div id="choropleth_map"></div>
             <script type="text/javascript">
-                var spec2 = "js/first_map.vg.json";
-                vegaEmbed('#choropleth_map', spec2).then(function (result) {
+                var firstMap = "js/first_map.vg.json";
+                vegaEmbed('#choropleth_map', firstMap).then(function (result) {
                 }).catch(console.error);
             </script>  
         </div>
@@ -43,7 +43,11 @@
         <div class="row">
             <!-- Second graph for week 10 -->
             <div id="highlighted_countries"></div>
-            
+            <script type="text/javascript">
+                var highlightVg = "js/highlightCountriesGNI.vg.json";
+                vegaEmbed('#highlighted_countries', highlightVg).then(function (result) {
+                }).catch(console.error);
+            </script>  
         </div>
     </div>
 
