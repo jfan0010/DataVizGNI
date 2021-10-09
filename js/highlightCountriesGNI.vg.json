@@ -13,13 +13,13 @@
     "point": true
   },
   "encoding": {
-    "x": { "timeUnit": "year", "field": "TIME" },
-    "y": { "field": "Value", "type": "quantitative" },
-    "color": { "field": "LOCATION", "type": "nominal" },
+    "x": { "timeUnit": "year", "field": "TIME", "title":" Year" },
+    "y": { "field": "Value", "type": "quantitative", "title":"GNI (US$) per Capita" },
+    "color": { "field": "LOCATION", "type": "nominal", "title": "Country" },
     "tooltip": [
-      { "field": "LOCATION", "type": "nominal" },
-      { "field": "Value", "type": "quantitative" },
-      { "field": "TIME" }
+      { "field": "LOCATION", "type": "nominal", "title": "Country Code" },
+      { "field": "Value", "type": "quantitative", "title": "GNI per Capita" },
+      { "field": "TIME", "timeUnit":"year", "title":"Year" }
     ]
   }
 }
