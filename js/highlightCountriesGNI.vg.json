@@ -1,19 +1,25 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  
-    "title": "GNI of Highlighted Countries",
-    "height": 600,
-    "width": 800,
-  
-    "data": {"url": "https://raw.githubusercontent.com/jfan0010/FIT3179Week10Homwork/main/data/normalisedGniHighlightedCountries.csv"},
-    "mark": {
-      "type": "line",
-      "point": true
-    },
-    "encoding": {
-      "x": {"timeUnit": "year", "field": "TIME"},
-      "y": {"field": "Value", "type": "quantitative"},
-      "color": {"field": "LOCATION", "type": "nominal"}
-    }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "GNI of Highlighted Countries",
+  "height": 600,
+  "width": 800,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/jfan0010/FIT3179Week10Homwork/main/data/normalisedGniHighlightedCountries.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": { "timeUnit": "year", "field": "TIME" },
+    "y": { "field": "Value", "type": "quantitative" },
+    "color": { "field": "LOCATION", "type": "nominal" },
+    "tooltip": [
+      { "field": "LOCATION", "type": "nominal" },
+      { "field": "Value", "type": "quantitative" },
+      { "field": "TIME" }
+    ]
   }
-  
+}
