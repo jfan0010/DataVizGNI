@@ -16,26 +16,34 @@
     <!-- Responsive meta tag from Bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Website tab title -->
-    <title>FIT3179 Data Viz 2</title>
+    <title>FIT3179 Wk10 Homework</title>
     <!-- External CSS files -->
     <link rel="stylesheet" href="css/main.css">
 </head>
 
+
+
 <body>
     <div class="container">
         <div class="row">
-            <h1>Week 9 Homework</h1>
+            <h1>Week 10 Homework</h1>
             <h4>Name: Jie Xiang Fan</h4>
             <h4>Student ID: 29627923</h4>
         </div>
         <div class="row">
-            <!-- First map for homework week 9 -->
+            <!-- First map from homework week 9 -->
             <div id="choropleth_map"></div>
             <script type="text/javascript">
                 var spec2 = "js/first_map.vg.json";
                 vegaEmbed('#choropleth_map', spec2).then(function (result) {
                 }).catch(console.error);
-            </script>
+            </script>  
+        </div>
+
+        <div class="row">
+            <!-- Second graph for week 10 -->
+            <div id="highlighted_countries"></div>
+            
         </div>
     </div>
 
@@ -48,5 +56,6 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
 </body>
+
 
 </html>
