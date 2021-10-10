@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": "GNI of Highlighted Countries",
-
   "data": {
     "url": "https://raw.githubusercontent.com/jfan0010/FIT3179Week10Homwork/main/data/normalisedGniHighlightedCountries.csv"
   },
 
   "vconcat": [
     {
+      "title": "GNI of Highlighted Countries",
+
       "height": 600,
       "width": 800,
       "mark": {
@@ -37,7 +37,31 @@
           },
           { "field": "TIME", "timeUnit": "year", "title": "Year" }
         ]
-      }
+      },
+      "layer": [
+        { "mark": {
+          "type": "line",
+          "point": true
+        }
+       },
+        {
+          "transform": [
+            {
+              "window": [{ "op": "rank", "as": "ranking" }],
+              "sort": [{ "field": "Value", "order": "descending" }]
+            },
+            {
+              "filter": "datum.ranking == 1"
+            },
+            {
+              "calculate": "datum['LOCATION'] + ' has the highest normalised GNI of ' + datum['Value'] + ' between this period.'",
+              "as": "text_annotation"
+            }
+          ],
+          "mark": { "type": "text", "align": "left", "dx": 4 },
+          "encoding": { "text": { "field": "text_annotation" } }
+        }
+      ]
     },
 
     {
@@ -59,7 +83,7 @@
           "field": "TIME",
           "title": "Year"
         },
-        "y":{
+        "y": {
           "field": "Value",
           "type": "quantitative",
           "title": "GNI"

@@ -2,7 +2,7 @@
 
 .whole-viz {
   background-color: ghostwhite;
-  width: 1080px;
+  width: 1280px; /* normal 13 inch laptop is 1280 */
 }
 
 .linechart-row{
