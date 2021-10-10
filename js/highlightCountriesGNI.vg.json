@@ -1,20 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "data": {
     "url": "https://raw.githubusercontent.com/jfan0010/FIT3179Week10Homwork/main/data/normalisedGniHighlightedCountries.csv"
   },
-
   "vconcat": [
     {
       "title": "GNI of Highlighted Countries",
-
       "height": 600,
       "width": 800,
-      "mark": {
-        "type": "line",
-        "point": true
-      },
+
+      "transform": [{ "filter": { "param": "brush" } }],
+
       "encoding": {
         "x": {
           "timeUnit": "year",
@@ -39,26 +35,20 @@
         ]
       },
       "layer": [
-        { "mark": {
-          "type": "line",
-          "point": true
-        }
-       },
+        { "mark": { "type": "line", "point": true } },
         {
           "transform": [
             {
-              "window": [{ "op": "rank", "as": "ranking" }],
-              "sort": [{ "field": "Value", "order": "descending" }]
+              "sort": [{ "field": "Value", "order": "descending" }],
+              "window": [{ "op": "rank", "as": "ranking" }]
             },
+            { "filter": "datum.ranking == 1" },
             {
-              "filter": "datum.ranking == 1"
-            },
-            {
-              "calculate": "datum['LOCATION'] + ' has the highest normalised GNI of ' + datum['Value'] + ' between this period.'",
+              "calculate": "datum['LOCATION'] + ' has the highest normalised GNI '",
               "as": "text_annotation"
             }
           ],
-          "mark": { "type": "text", "align": "left", "dx": 4 },
+          "mark": { "type": "text", "align": "right" },
           "encoding": { "text": { "field": "text_annotation" } }
         }
       ]
@@ -67,10 +57,7 @@
     {
       "width": 800,
       "height": 60,
-      "mark": {
-        "type": "line",
-        "point": true
-      },
+      "mark": { "type": "line", "point": true },
       "params": [
         {
           "name": "brush",
@@ -78,16 +65,8 @@
         }
       ],
       "encoding": {
-        "x": {
-          "timeUnit": "year",
-          "field": "TIME",
-          "title": "Year"
-        },
-        "y": {
-          "field": "Value",
-          "type": "quantitative",
-          "title": "GNI"
-        },
+        "x": { "timeUnit": "year", "field": "TIME", "title": "Year" },
+        "y": { "field": "Value", "type": "quantitative", "title": "GNI" },
         "color": { "field": "LOCATION", "type": "nominal", "title": "Country" }
       }
     }
