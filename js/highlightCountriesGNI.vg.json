@@ -2,24 +2,70 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "title": "GNI of Highlighted Countries",
-  "height": 600,
-  "width": 800,
 
   "data": {
     "url": "https://raw.githubusercontent.com/jfan0010/FIT3179Week10Homwork/main/data/normalisedGniHighlightedCountries.csv"
   },
-  "mark": {
-    "type": "line",
-    "point": true
-  },
-  "encoding": {
-    "x": { "timeUnit": "year", "field": "TIME", "title":" Year" },
-    "y": { "field": "Value", "type": "quantitative", "title":"GNI (US$) per Capita" },
-    "color": { "field": "LOCATION", "type": "nominal", "title": "Country" },
-    "tooltip": [
-      { "field": "LOCATION", "type": "nominal", "title": "Country Code" },
-      { "field": "Value", "type": "quantitative", "title": "GNI per Capita" },
-      { "field": "TIME", "timeUnit":"year", "title":"Year" }
-    ]
-  }
+
+  "vconcat": [
+    {
+      "height": 600,
+      "width": 800,
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "timeUnit": "year",
+          "field": "TIME",
+          "title": "",
+          "scale": { "domain": { "param": "brush" } }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "GNI (US$) per Capita"
+        },
+        "color": { "field": "LOCATION", "type": "nominal", "title": "Country" },
+        "tooltip": [
+          { "field": "LOCATION", "type": "nominal", "title": "Country Code" },
+          {
+            "field": "Value",
+            "type": "quantitative",
+            "title": "GNI per Capita"
+          },
+          { "field": "TIME", "timeUnit": "year", "title": "Year" }
+        ]
+      }
+    },
+
+    {
+      "width": 800,
+      "height": 60,
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "params": [
+        {
+          "name": "brush",
+          "select": { "type": "interval", "encodings": ["x"] }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "timeUnit": "year",
+          "field": "TIME",
+          "title": "Year"
+        },
+        "y":{
+          "field": "Value",
+          "type": "quantitative",
+          "title": "GNI"
+        },
+        "color": { "field": "LOCATION", "type": "nominal", "title": "Country" }
+      }
+    }
+  ]
 }

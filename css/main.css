@@ -1,6 +1,36 @@
 /* Main.css */
 
-.whole-viz{
-    background-color:ghostwhite;
-    width: 1024px;
+.whole-viz {
+  background-color: ghostwhite;
+  width: 1080px;
+}
+
+.linechart-row{
+  align-items: center;
+  justify-content: center;
+}
+
+.map-row {
+    align-items: center;
+    justify-content: center;
+  }
+
+#highlighted_countries {
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+#choropleth_map {
+  padding-left: 20px;
+  padding-right: 30px;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+.empty-row{
+    height: 30px;
 }
