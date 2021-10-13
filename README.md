@@ -1,4 +1,5 @@
-# FIT3179 Week 10 Homework
-This repo is dedicated for FIT3179 Week 10 homework submission.
+# Monash University FIT3179 Data Visualisation II - Gross National Income
 
-The site is published at https://jfan0010.github.io/FIT3179Week10Homwork/.
+This repo is for Monash University FIT3179 Data Visualisation II submission.
+
+The site is published at https://jfan0010.github.io/DataVizGNI/.
