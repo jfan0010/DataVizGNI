@@ -8,7 +8,7 @@
   "projection": { "type": "equirectangular" },
 
   "data": {
-    "url": "https://raw.githubusercontent.com/jfan0010/FIT3179DataViz2/main/js/ne_110m_admin_0_countries.topojson",
+    "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/js/ne_110m_admin_0_countries.topojson",
     "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
   },
 
@@ -31,7 +31,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/jfan0010/FIT3179DataViz2/main/data/human_development.csv"
+              "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/human_development.csv"
             },
             "key": "Country",
             "fields": ["Mean_Years_of_Education", "GNI"]
