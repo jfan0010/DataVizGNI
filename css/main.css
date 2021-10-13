@@ -1,8 +1,22 @@
 /* Main.css */
 
+body{
+  background-color: #f0ffff;
+}
+
 .whole-viz-page {
-  background-color: ghostwhite;
+  /* spacing of the page */
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* colour of the page to show different */
+  background-color: white;
   width: 1280px; /* normal 13 inch laptop is 1280 */
+  min-width: 1280px;
+  max-width: 1280px;
 }
 
 .linechart-row{
