@@ -176,7 +176,11 @@
               "as": ["year", "rawGni"]
             },
             {"calculate": "toNumber(datum.rawGni)", "as": "gni"},
-            {"filter": "datum.year == year_selection"}
+            {"filter": "datum.year == year_selection"},
+            {
+              "calculate": "'In ' + year_selection + ', you can earn ' + datum.gni + ' US$ a year on average in '+ datum.properties.NAME + '.'",
+              "as": "noteWithData"
+            }
           ],
           "mark": {"type": "geoshape", "stroke": "white"},
           "encoding": {
@@ -186,18 +190,7 @@
               "scale": {"type": "log"},
               "title": "GNI per Capita"
             },
-            "tooltip": [
-              {
-                "field": "properties.NAME",
-                "type": "nominal",
-                "title": "Country"
-              },
-              {
-                "field": "gni",
-                "type": "quantitative",
-                "title": "GNI per Capita"
-              }
-            ]
+            "tooltip": {"field": "noteWithData"}
           }
         }
       ]
