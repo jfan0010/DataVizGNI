@@ -18,7 +18,7 @@ h1, h3 {
   padding-left: 35px;
   padding-right: 35px;
   /* colour of the page to show different */
-  background-color: ghostwhite;
+  background-color: ghostwhite; /* #f8f8ff */
   width: 1280px; /* low dpi 13 inch laptop is 1280 */
   min-width: 1280px;
   max-width: 1280px;
