@@ -19,10 +19,10 @@
       "width": 800,
       "height": 600,
       "title": "map of the title",
-      "projection": { "type": "equirectangular" },
+      "projection": {"type": "equirectangular"},
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/js/ne_110m_admin_0_countries.topojson",
-        "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
       "layer": [
         {
@@ -32,8 +32,8 @@
               "as": "note"
             }
           ],
-          "mark": { "type": "geoshape", "fill": "#ececec", "stroke": "white" },
-          "encoding": { "tooltip": { "field": "note" } }
+          "mark": {"type": "geoshape", "fill": "#ececec", "stroke": "white"},
+          "encoding": {"tooltip": {"field": "note"}}
         },
         {
           "transform": [
@@ -175,106 +175,38 @@
               ],
               "as": ["year", "rawGni"]
             },
-            { "calculate": "toNumber(datum.rawGni)", "as": "gni" },
-            { "filter": "datum.year == year_selection" },
+            {"calculate": "toNumber(datum.rawGni)", "as": "gni"},
+            {"filter": "datum.year == year_selection"},
             {
               "calculate": "'In ' + year_selection + ', you can earn ' + datum.gni + ' US$ a year on average in '+ datum.properties.NAME + '.'",
               "as": "noteWithData"
             }
           ],
-          "mark": { "type": "geoshape", "stroke": "white" },
+          "mark": {"type": "geoshape", "stroke": "white"},
           "encoding": {
             "color": {
               "field": "gni",
               "type": "quantitative",
-              "scale": { "type": "log" },
+              "scale": {"type": "log"},
               "title": "GNI per Capita"
             },
-            "tooltip": { "field": "noteWithData" }
+            "tooltip": {"field": "noteWithData"}
           }
         }
       ]
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/gniUsd.csv"
+        "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combinedClean.csv"
       },
       "width": 800,
       "height": 500,
-      "transform": [
-        {
-          "fold": [
-            "1960",
-            "1961",
-            "1962",
-            "1963",
-            "1964",
-            "1965",
-            "1966",
-            "1967",
-            "1968",
-            "1969",
-            "1970",
-            "1971",
-            "1972",
-            "1973",
-            "1974",
-            "1975",
-            "1976",
-            "1977",
-            "1978",
-            "1979",
-            "1980",
-            "1981",
-            "1982",
-            "1983",
-            "1984",
-            "1985",
-            "1986",
-            "1987",
-            "1988",
-            "1989",
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020"
-          ],
-          "as": ["year", "rawGni"]
-        }
-      ],
+      "transform": [{"calculate": "toNumber(datum.gni)", "as": "numGni"}],
       "layer": [
         {
           "transform": [
-            { "calculate": "toNumber(datum.rawGni)", "as": "gni" },
-            { "filter": { "field": "gniCountry", "equal": "Australia" } },
-            { "filter": "datum.year == year_selection" }
+            {"filter": {"field": "countryName", "equal": "Australia"}},
+            {"filter": "datum.year == year_selection"}
           ],
           "mark": {
             "type": "text",
@@ -283,234 +215,22 @@
             "y": 250,
             "opacity": 0.06
           },
-          "encoding": { "text": { "field": "year" } }
+          "encoding": {"text": {"field": "year"}}
         },
         {
-          "transform": [
-            {
-              "lookup": "gniCountry",
-              "from": {
-                "data": {
-                  "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/population.csv"
-                },
-                "key": "popCountry",
-                "fields": [
-                  "1960",
-                  "1961",
-                  "1962",
-                  "1963",
-                  "1964",
-                  "1965",
-                  "1966",
-                  "1967",
-                  "1968",
-                  "1969",
-                  "1970",
-                  "1971",
-                  "1972",
-                  "1973",
-                  "1974",
-                  "1975",
-                  "1976",
-                  "1977",
-                  "1978",
-                  "1979",
-                  "1980",
-                  "1981",
-                  "1982",
-                  "1983",
-                  "1984",
-                  "1985",
-                  "1986",
-                  "1987",
-                  "1988",
-                  "1989",
-                  "1990",
-                  "1991",
-                  "1992",
-                  "1993",
-                  "1994",
-                  "1995",
-                  "1996",
-                  "1997",
-                  "1998",
-                  "1999",
-                  "2000",
-                  "2001",
-                  "2002",
-                  "2003",
-                  "2004",
-                  "2005",
-                  "2006",
-                  "2007",
-                  "2008",
-                  "2009",
-                  "2010",
-                  "2011",
-                  "2012",
-                  "2013",
-                  "2014",
-                  "2015",
-                  "2016",
-                  "2017",
-                  "2018",
-                  "2019",
-                  "2020"
-                ]
-              },
-              "as": [
-                "pop1960",
-                "pop1961",
-                "pop1962",
-                "pop1963",
-                "pop1964",
-                "pop1965",
-                "pop1966",
-                "pop1967",
-                "pop1968",
-                "pop1969",
-                "pop1970",
-                "pop1971",
-                "pop1972",
-                "pop1973",
-                "pop1974",
-                "pop1975",
-                "pop1976",
-                "pop1977",
-                "pop1978",
-                "pop1979",
-                "pop1980",
-                "pop1981",
-                "pop1982",
-                "pop1983",
-                "pop1984",
-                "pop1985",
-                "pop1986",
-                "pop1987",
-                "pop1988",
-                "pop1989",
-                "pop1990",
-                "pop1991",
-                "pop1992",
-                "pop1993",
-                "pop1994",
-                "pop1995",
-                "pop1996",
-                "pop1997",
-                "pop1998",
-                "pop1999",
-                "pop2000",
-                "pop2001",
-                "pop2002",
-                "pop2003",
-                "pop2004",
-                "pop2005",
-                "pop2006",
-                "pop2007",
-                "pop2008",
-                "pop2009",
-                "pop2010",
-                "pop2011",
-                "pop2012",
-                "pop2013",
-                "pop2014",
-                "pop2015",
-                "pop2016",
-                "pop2017",
-                "pop2018",
-                "pop2019",
-                "pop2020"
-              ]
-            },
-            {
-              "fold": [
-                "pop1960",
-                "pop1961",
-                "pop1962",
-                "pop1963",
-                "pop1964",
-                "pop1965",
-                "pop1966",
-                "pop1967",
-                "pop1968",
-                "pop1969",
-                "pop1970",
-                "pop1971",
-                "pop1972",
-                "pop1973",
-                "pop1974",
-                "pop1975",
-                "pop1976",
-                "pop1977",
-                "pop1978",
-                "pop1979",
-                "pop1980",
-                "pop1981",
-                "pop1982",
-                "pop1983",
-                "pop1984",
-                "pop1985",
-                "pop1986",
-                "pop1987",
-                "pop1988",
-                "pop1989",
-                "pop1990",
-                "pop1991",
-                "pop1992",
-                "pop1993",
-                "pop1994",
-                "pop1995",
-                "pop1996",
-                "pop1997",
-                "pop1998",
-                "pop1999",
-                "pop2000",
-                "pop2001",
-                "pop2002",
-                "pop2003",
-                "pop2004",
-                "pop2005",
-                "pop2006",
-                "pop2007",
-                "pop2008",
-                "pop2009",
-                "pop2010",
-                "pop2011",
-                "pop2012",
-                "pop2013",
-                "pop2014",
-                "pop2015",
-                "pop2016",
-                "pop2017",
-                "pop2018",
-                "pop2019",
-                "pop2020"
-              ],
-              "as": ["popYear", "population"]
-            },
-            {
-              "lookup": "gniCountry",
-              "from": {
-                "data": {
-                  "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/continents.csv"
-                },
-                "key": "name",
-                "fields": ["region"]
-              }
-            }
-          ],
+          "transform": [],
           "encoding": {
             "x": {
               "field": "population",
               "type": "quantitative",
-              "scale": { "type": "log" },
-              "axis": { "title": "Population" }
+              "scale": {"type": "log"},
+              "axis": {"title": "Population"}
             },
             "y": {
-              "field": "gni",
+              "field": "numGni",
               "type": "quantitative",
-              "scale": { "type": "log" },
-              "axis": { "title": "GNI per Capita (US$)" }
+              "scale": {"type": "log"},
+              "axis": {"title": "GNI per Capita (US$)"}
             }
           },
           "layer": [
@@ -522,14 +242,14 @@
                 "strokeCap": "round"
               },
               "encoding": {
-                "detail": { "field": "gniCountry" },
-                "order": { "field": "year" },
+                "detail": {"field": "countryName"},
+                "order": {"field": "year"},
                 "opacity": {
                   "condition": {
                     "test": {
                       "or": [
-                        { "param": "hovered", "empty": false },
-                        { "param": "clicked", "empty": false }
+                        {"param": "hovered", "empty": false},
+                        {"param": "clicked", "empty": false}
                       ]
                     },
                     "value": 0.8
@@ -544,30 +264,30 @@
                   "name": "hovered",
                   "select": {
                     "type": "point",
-                    "fields": ["gniCountry"],
+                    "fields": ["country"],
                     "toggle": false,
                     "on": "mouseover"
                   }
                 },
                 {
                   "name": "clicked",
-                  "select": { "type": "point", "fields": ["gniCountry"] }
+                  "select": {"type": "point", "fields": ["country"]}
                 }
               ],
-              "transform": [{ "filter": { "param": "year_selection" } }],
-              "mark": { "type": "circle", "size": 100, "opacity": 0.9 },
-              "encoding": { "color": { "field": "region", "title": "Region" } }
+              "transform": [{"filter":  "year_selection == datum.year"}],
+              "mark": {"type": "circle", "size": 100, "opacity": 0.9},
+              "encoding": {"color": {"field": "region", "title": "Region"}}
             },
             {
               "transform": [
                 {
                   "filter": {
                     "and": [
-                      { "param": "year_selection" },
+                      {"param": "year_selection" },
                       {
                         "or": [
-                          { "param": "clicked", "empty": false },
-                          { "param": "hovered", "empty": false }
+                          {"param": "clicked", "empty": false},
+                          {"param": "hovered", "empty": false}
                         ]
                       }
                     ]
@@ -581,14 +301,14 @@
                 "fontWeight": "bold"
               },
               "encoding": {
-                "text": { "field": "gniCountry" },
-                "color": { "field": "region", "title": "Region" }
+                "text": {"field": "country"},
+                "color": {"field": "name", "title": "Region"}
               }
             },
             {
               "transform": [
-                { "filter": { "param": "hovered", "empty": false } },
-                { "filter": { "not": { "param": "year_selection" } } }
+                {"filter": {"param": "hovered", "empty": false}},
+                {"filter": {"not": {"param": "year_selection"}}}
               ],
               "layer": [
                 {
@@ -598,9 +318,9 @@
                     "fontSize": 12,
                     "color": "gray"
                   },
-                  "encoding": { "text": { "field": "year" } }
+                  "encoding": {"text": {"field": "year"}}
                 },
-                { "mark": { "type": "circle", "color": "gray" } }
+                {"mark": {"type": "circle", "color": "gray"}}
               ]
             }
           ]
