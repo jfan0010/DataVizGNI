@@ -317,7 +317,7 @@
                   "mark": {
                     "type": "text",
                     "yOffset": -12,
-                    "fontSize": 12,
+                    "fontSize": 10,
                     "color": "gray",
                     "opacity": 0.5
                   },
