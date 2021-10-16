@@ -229,13 +229,13 @@
             "x": {
               "field": "population",
               "type": "quantitative",
-              "scale": { "type": "log" },
+              "scale": { "type": "log", "zero": false },
               "axis": { "title": "Population" }
             },
             "y": {
               "field": "numGni",
               "type": "quantitative",
-              "scale": { "type": "log" },
+              "scale": { "type": "log", "zero": false },
               "axis": { "title": "GNI per Capita (US$)" }
             }
           },
