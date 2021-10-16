@@ -3,7 +3,7 @@
   "params": [
     {
       "name": "year_selection",
-      "value": 2020,
+      "value": 2005,
       "bind": {
         "input": "range",
         "min": 1965,
@@ -32,7 +32,7 @@
               "as": "note"
             }
           ],
-          "mark": { "type": "geoshape", "fill": "#ececec", "stroke": "white" },
+          "mark": { "type": "geoshape", "fill": "#eaeaea", "stroke": "white" },
           "encoding": { "tooltip": { "field": "note" } }
         },
         {
