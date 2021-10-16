@@ -199,14 +199,17 @@
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combinedClean.csv"
       },
-      "width": 800,
-      "height": 500,
-      "transform": [{"calculate": "toNumber(datum.gni)", "as": "numGni"}],
+      "width": 1000,
+      "height": 1600,
+      "transform": [
+        {"calculate": "toNumber(datum.gni)", "as": "numGni"},
+        {"calculate": "toNumber(datum.year)", "as": "yearNum"}
+      ],
       "layer": [
         {
           "transform": [
             {"filter": {"field": "countryName", "equal": "Australia"}},
-            {"filter": "datum.year == year_selection"}
+            {"filter": "datum.yearNum == year_selection"}
           ],
           "mark": {
             "type": "text",
@@ -215,10 +218,9 @@
             "y": 250,
             "opacity": 0.06
           },
-          "encoding": {"text": {"field": "year"}}
+          "encoding": {"text": {"field": "yearNum"}}
         },
         {
-          "transform": [],
           "encoding": {
             "x": {
               "field": "population",
@@ -243,7 +245,7 @@
               },
               "encoding": {
                 "detail": {"field": "countryName"},
-                "order": {"field": "year"},
+                "order": {"field": "yearNum"},
                 "opacity": {
                   "condition": {
                     "test": {
@@ -264,17 +266,17 @@
                   "name": "hovered",
                   "select": {
                     "type": "point",
-                    "fields": ["country"],
+                    "fields": ["countryName"],
                     "toggle": false,
                     "on": "mouseover"
                   }
                 },
                 {
                   "name": "clicked",
-                  "select": {"type": "point", "fields": ["country"]}
+                  "select": {"type": "point", "fields": ["countryName"]}
                 }
               ],
-              "transform": [{"filter":  "year_selection == datum.year"}],
+              "transform": [{"filter": "year_selection == datum.yearNum"}],
               "mark": {"type": "circle", "size": 100, "opacity": 0.9},
               "encoding": {"color": {"field": "region", "title": "Region"}}
             },
@@ -283,7 +285,7 @@
                 {
                   "filter": {
                     "and": [
-                      {"param": "year_selection" },
+                      "year_selection == datum.yearNum",
                       {
                         "or": [
                           {"param": "clicked", "empty": false},
@@ -301,14 +303,14 @@
                 "fontWeight": "bold"
               },
               "encoding": {
-                "text": {"field": "country"},
-                "color": {"field": "name", "title": "Region"}
+                "text": {"field": "countryName"},
+                "color": {"field": "region", "title": "Region"}
               }
             },
             {
               "transform": [
                 {"filter": {"param": "hovered", "empty": false}},
-                {"filter": {"not": {"param": "year_selection"}}}
+                {"filter": {"not": "year_selection == datum.yearNum"}}
               ],
               "layer": [
                 {
@@ -316,11 +318,12 @@
                     "type": "text",
                     "yOffset": -12,
                     "fontSize": 12,
-                    "color": "gray"
+                    "color": "gray",
+                    "opacity": 0.5
                   },
-                  "encoding": {"text": {"field": "year"}}
+                  "encoding": {"text": {"field": "yearNum"}}
                 },
-                {"mark": {"type": "circle", "color": "gray"}}
+                {"mark": {"type": "circle", "color": "gray", "opacity": 0.3}}
               ]
             }
           ]
