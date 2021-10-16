@@ -191,7 +191,7 @@
                 "direction": "vertical",
                 "orient": "top-right",
                 "zindex": 1,
-                "offset": 20
+                "offset": 25
               }
             },
             "tooltip": { "field": "noteWithData" }
@@ -290,7 +290,7 @@
                     "direction": "vertical",
                     "orient": "top-right",
                     "zindex": 1,
-                    "offset": 20
+                    "offset": 25
                   }
                 }
               }
