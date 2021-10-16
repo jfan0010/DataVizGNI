@@ -36,11 +36,11 @@
         <div class="row empty-row"></div>
 
         <div class="row map-row">
-            <!-- First map from homework week 9 -->
-            <div id="choropleth_map"></div>
+            <!-- Map + plot with year filter -->
+            <div id="map"></div>
             <script type="text/javascript">
                 var firstMap = "js/first_map.vg.json";
-                vegaEmbed('#choropleth_map', firstMap).then(function (result) {
+                vegaEmbed('#map', firstMap).then(function (result) {
                 }).catch(console.error);
             </script>  
         </div>
@@ -49,10 +49,10 @@
 
         <div class="row linechart-row">
             <!-- Second graph for week 10 -->
-            <div id="highlighted_countries"></div>
+            <div id="happy_peace"></div>
             <script type="text/javascript">
-                var highlightVg = "js/highlightCountriesGNI.vg.json";
-                vegaEmbed('#highlighted_countries', highlightVg).then(function (result) {
+                var happyPeace = "js/gpiHappy.vg.json";
+                vegaEmbed('#happy_peace', happyPeace).then(function (result) {
                 }).catch(console.error);
             </script>  
         </div>

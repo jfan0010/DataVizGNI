@@ -34,7 +34,7 @@ h1, h3 {
     justify-content: center;
   }
 
-#highlighted_countries {
+#happy_peace {
   padding-left: 30px;
   padding-right: 30px;
   align-items: center;
@@ -42,7 +42,7 @@ h1, h3 {
   width: max-content;
 }
 
-#choropleth_map {
+#map {
   padding-left: 20px;
   padding-right: 30px;
   align-items: center;

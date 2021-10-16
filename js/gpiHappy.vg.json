@@ -5,6 +5,7 @@
   },
   "width": 600,
   "height": 300,
+  "background": "#f8f8ff",
   "transform": [
     { "calculate": "toNumber(datum.gni)", "as": "GNI per Capita (US$)" },
     { "calculate": "toNumber(datum.population)", "as": "Country Population" },
