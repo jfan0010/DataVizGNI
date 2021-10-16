@@ -48,3 +48,11 @@ csvwriter = csv.writer(file)
 csvwriter.writerow(combHead)
 csvwriter.writerows(combRows)
 file.close()
+
+file = open("c:/DataVizGNI/data/combinedClean.csv", 'w', newline='')
+csvwriter = csv.writer(file)
+csvwriter.writerow(combHead)
+for row in combRows:
+    if row[0] != '' and row[1] != '' and row[2] != '' and row[3] != '' and row[4] != '' and row[5] != '':
+        csvwriter.writerow(row)
+file.close()
