@@ -1,7 +1,7 @@
 import csv
 
 
-file = open("c:/DataVizGNI/data/gniUsd.csv")
+file = open("c:/DataVizGNI/data/gniUsdcopy.csv")
 csvreader = csv.reader(file)
 gniHeader = next(csvreader)
 gniRows = []
@@ -10,7 +10,7 @@ for row in csvreader:
 file.close()
 
 
-file = open("c:/DataVizGNI/data/population.csv")
+file = open("c:/DataVizGNI/data/populationcopy.csv")
 csvreader = csv.reader(file)
 pHeader = next(csvreader)
 pRows = []
