@@ -16,11 +16,11 @@
   "vconcat": [
     {
       "width": 1000,
-      "height": 650,
-      "projection": {"type": "equirectangular"},
+      "height": 800,
+      "projection": { "type": "equirectangular" },
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/js/ne_110m_admin_0_countries.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
       },
       "layer": [
         {
@@ -30,8 +30,8 @@
               "as": "note"
             }
           ],
-          "mark": {"type": "geoshape", "fill": "#ececec", "stroke": "white"},
-          "encoding": {"tooltip": {"field": "note"}}
+          "mark": { "type": "geoshape", "fill": "#ececec", "stroke": "white" },
+          "encoding": { "tooltip": { "field": "note" } }
         },
         {
           "transform": [
@@ -173,22 +173,28 @@
               ],
               "as": ["year", "rawGni"]
             },
-            {"calculate": "toNumber(datum.rawGni)", "as": "gni"},
-            {"filter": "datum.year == year_selection"},
+            { "calculate": "toNumber(datum.rawGni)", "as": "gni" },
+            { "filter": "datum.year == year_selection" },
             {
               "calculate": "'In ' + year_selection + ', you can earn ' + datum.gni + ' US$ a year on average in '+ datum.properties.NAME + '.'",
               "as": "noteWithData"
             }
           ],
-          "mark": {"type": "geoshape", "stroke": "white"},
+          "mark": { "type": "geoshape", "stroke": "white" },
           "encoding": {
             "color": {
               "field": "gni",
               "type": "quantitative",
-              "scale": {"type": "log"},
-              "title": "GNI per Capita"
+              "scale": { "type": "log" },
+              "title": "GNI per Capita",
+              "legend": {
+                "direction": "vertical",
+                "orient": "top-right",
+                "zindex": 1,
+                "offset": 20
+              }
             },
-            "tooltip": {"field": "noteWithData"}
+            "tooltip": { "field": "noteWithData" }
           }
         }
       ]
@@ -198,39 +204,39 @@
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combinedClean.csv"
       },
       "width": 1000,
-      "height": 1600,
+      "height": 1000,
       "transform": [
-        {"calculate": "toNumber(datum.gni)", "as": "numGni"},
-        {"calculate": "toNumber(datum.year)", "as": "yearNum"}
+        { "calculate": "toNumber(datum.gni)", "as": "numGni" },
+        { "calculate": "toNumber(datum.year)", "as": "yearNum" }
       ],
       "layer": [
         {
           "transform": [
-            {"filter": {"field": "countryName", "equal": "Australia"}},
-            {"filter": "datum.yearNum == year_selection"}
+            { "filter": { "field": "countryName", "equal": "Australia" } },
+            { "filter": "datum.yearNum == year_selection" }
           ],
           "mark": {
             "type": "text",
             "fontSize": 100,
             "x": 520,
-            "y": 800,
+            "y": 500,
             "opacity": 0.06
           },
-          "encoding": {"text": {"field": "yearNum"}}
+          "encoding": { "text": { "field": "yearNum" } }
         },
         {
           "encoding": {
             "x": {
               "field": "population",
               "type": "quantitative",
-              "scale": {"type": "log"},
-              "axis": {"title": "Population"}
+              "scale": { "type": "log" },
+              "axis": { "title": "Population" }
             },
             "y": {
               "field": "numGni",
               "type": "quantitative",
-              "scale": {"type": "log"},
-              "axis": {"title": "GNI per Capita (US$)"}
+              "scale": { "type": "log" },
+              "axis": { "title": "GNI per Capita (US$)" }
             }
           },
           "layer": [
@@ -242,14 +248,14 @@
                 "strokeCap": "round"
               },
               "encoding": {
-                "detail": {"field": "countryName"},
-                "order": {"field": "yearNum"},
+                "detail": { "field": "countryName" },
+                "order": { "field": "yearNum" },
                 "opacity": {
                   "condition": {
                     "test": {
                       "or": [
-                        {"param": "hovered", "empty": false},
-                        {"param": "clicked", "empty": false}
+                        { "param": "hovered", "empty": false },
+                        { "param": "clicked", "empty": false }
                       ]
                     },
                     "value": 0.8
@@ -271,12 +277,23 @@
                 },
                 {
                   "name": "clicked",
-                  "select": {"type": "point", "fields": ["countryName"]}
+                  "select": { "type": "point", "fields": ["countryName"] }
                 }
               ],
-              "transform": [{"filter": "year_selection == datum.yearNum"}],
-              "mark": {"type": "circle", "size": 100, "opacity": 0.9},
-              "encoding": {"color": {"field": "region", "title": "Region"}}
+              "transform": [{ "filter": "year_selection == datum.yearNum" }],
+              "mark": { "type": "circle", "size": 100, "opacity": 0.9 },
+              "encoding": {
+                "color": {
+                  "field": "region",
+                  "title": "Region",
+                  "legend": {
+                    "direction": "vertical",
+                    "orient": "top-right",
+                    "zindex": 1,
+                    "offset": 20
+                  }
+                }
+              }
             },
             {
               "transform": [
@@ -286,8 +303,8 @@
                       "year_selection == datum.yearNum",
                       {
                         "or": [
-                          {"param": "clicked", "empty": false},
-                          {"param": "hovered", "empty": false}
+                          { "param": "clicked", "empty": false },
+                          { "param": "hovered", "empty": false }
                         ]
                       }
                     ]
@@ -301,14 +318,14 @@
                 "fontWeight": "bold"
               },
               "encoding": {
-                "text": {"field": "countryName"},
-                "color": {"field": "region", "title": "Region"}
+                "text": { "field": "countryName" },
+                "color": { "field": "region", "title": "Region" }
               }
             },
             {
               "transform": [
-                {"filter": {"param": "hovered", "empty": false}},
-                {"filter": {"not": "year_selection == datum.yearNum"}}
+                { "filter": { "param": "hovered", "empty": false } },
+                { "filter": { "not": "year_selection == datum.yearNum" } }
               ],
               "layer": [
                 {
@@ -319,9 +336,11 @@
                     "color": "gray",
                     "opacity": 0.5
                   },
-                  "encoding": {"text": {"field": "yearNum"}}
+                  "encoding": { "text": { "field": "yearNum" } }
                 },
-                {"mark": {"type": "circle", "color": "gray", "opacity": 0.3}}
+                {
+                  "mark": { "type": "circle", "color": "gray", "opacity": 0.3 }
+                }
               ]
             }
           ]
