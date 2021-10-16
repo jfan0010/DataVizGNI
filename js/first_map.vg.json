@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Gross National Income of Each Country",
   "params": [
     {
       "name": "year_selection",
@@ -16,9 +15,8 @@
   ],
   "vconcat": [
     {
-      "width": 800,
-      "height": 600,
-      "title": "map of the title",
+      "width": 1000,
+      "height": 650,
       "projection": {"type": "equirectangular"},
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/js/ne_110m_admin_0_countries.topojson",
@@ -214,8 +212,8 @@
           "mark": {
             "type": "text",
             "fontSize": 100,
-            "x": 420,
-            "y": 250,
+            "x": 520,
+            "y": 800,
             "opacity": 0.06
           },
           "encoding": {"text": {"field": "yearNum"}}
