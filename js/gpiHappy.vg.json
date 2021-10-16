@@ -1,0 +1,151 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combined2018.csv"
+  },
+  "width": 600,
+  "height": 300,
+  "transform": [
+    { "calculate": "toNumber(datum.gni)", "as": "GNI per Capita (US$)" },
+    { "calculate": "toNumber(datum.population)", "as": "Country Population" },
+    { "calculate": "toNumber(datum.gpi)", "as": "Global Peace Index" },
+    { "calculate": "toNumber(datum.happiness)", "as": "World Happiness Index" },
+    { "filter": "datum['GNI per Capita (US$)']" },
+    { "window": [{ "op": "count", "as": "index" }] },
+    {
+      "fold": [
+        "GNI per Capita (US$)",
+        "Country Population",
+        "Global Peace Index",
+        "World Happiness Index"
+      ]
+    },
+    {
+      "joinaggregate": [
+        { "op": "min", "field": "value", "as": "min" },
+        { "op": "max", "field": "value", "as": "max" }
+      ],
+      "groupby": ["key"]
+    },
+    {
+      "calculate": "(datum.value - datum.min) / (datum.max-datum.min)",
+      "as": "norm_val"
+    },
+    { "calculate": "(datum.min + datum.max) / 2", "as": "mid" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "rule", "color": "#ccc" },
+      "encoding": {
+        "detail": { "aggregate": "count" },
+        "x": { "field": "key" }
+      }
+    },
+    {
+      "mark": "line",
+      "encoding": {
+        "color": { "type": "nominal", "field": "region" },
+        "detail": { "type": "nominal", "field": "index" },
+        "opacity": { "value": 0.3 },
+        "x": { "type": "nominal", "field": "key" },
+        "y": { "type": "quantitative", "field": "norm_val", "axis": null },
+        "tooltip": [
+          { "type": "nominal", "field": "countryName", "title": "Country" },
+          {
+            "type": "quantitative",
+            "field": "GNI per Capita (US$)",
+            "title": "GNI per Capita"
+          },
+          {
+            "type": "quantitative",
+            "field": "Country Population",
+            "title": "Pupolation"
+          },
+          {
+            "type": "quantitative",
+            "field": "Global Peace Index",
+            "title": "Peace Index"
+          },
+          {
+            "type": "quantitative",
+            "field": "World Happiness Index",
+            "title": "Happiness Score"
+          }
+        ]
+      }
+    },
+    {
+      "encoding": {
+        "x": { "type": "nominal", "field": "key" },
+        "y": { "value": 0 }
+      },
+      "layer": [
+        {
+          "mark": { "type": "text", "style": "label" },
+          "encoding": { "text": { "aggregate": "max", "field": "max" } }
+        },
+        {
+          "mark": {
+            "type": "tick",
+            "style": "tick",
+            "size": 8,
+            "color": "#ccc"
+          }
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "x": { "type": "nominal", "field": "key" },
+        "y": { "value": 150 }
+      },
+      "layer": [
+        {
+          "mark": { "type": "text", "style": "label" },
+          "encoding": { "text": { "aggregate": "min", "field": "mid" } }
+        },
+        {
+          "mark": {
+            "type": "tick",
+            "style": "tick",
+            "size": 8,
+            "color": "#ccc"
+          }
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "x": { "type": "nominal", "field": "key" },
+        "y": { "value": 300 }
+      },
+      "layer": [
+        {
+          "mark": { "type": "text", "style": "label" },
+          "encoding": { "text": { "aggregate": "min", "field": "min" } }
+        },
+        {
+          "mark": {
+            "type": "tick",
+            "style": "tick",
+            "size": 8,
+            "color": "#ccc"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "axisX": {
+      "domain": false,
+      "labelAngle": 0,
+      "tickColor": "#ccc",
+      "title": null
+    },
+    "view": { "stroke": null },
+    "style": {
+      "label": { "baseline": "middle", "align": "right", "dx": -5 },
+      "tick": { "orient": "horizontal" }
+    }
+  }
+}
