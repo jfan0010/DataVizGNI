@@ -96,3 +96,12 @@ p{
   font-weight: bold;
   text-align: center;
 }
+
+.legend{
+  z-index: 20;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: 375px;
+  height: 120px;
+  width: 115px;
+}
