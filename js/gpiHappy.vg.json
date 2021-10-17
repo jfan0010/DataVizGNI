@@ -162,7 +162,8 @@
       "tick": { "orient": "horizontal" }
     },
     "title": {
-      "fontSize": 16
+      "fontSize": 16,
+      "offset":15
     }
   }
 }
