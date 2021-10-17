@@ -16,6 +16,7 @@
   "background": "#f8f8ff",
   "vconcat": [
     {
+      "title": "GNI per Capita of Each Country in Different Year",
       "width": 900,
       "height": 500,
       "projection": { "type": "equirectangular" },
@@ -187,7 +188,7 @@
               "field": "gni",
               "type": "quantitative",
               "scale": { "type": "log" },
-              "title": "GNI per Capita",
+              "title": "GNI (US$)",
               "legend": {
                 "direction": "vertical",
                 "orient": "right",
@@ -205,8 +206,9 @@
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combinedClean.csv"
       },
-      "width": 950,
-      "height": 1000,
+      "title": "Detailed View for GNI of Each Country",
+      "width": 900,
+      "height": 700,
       "transform": [
         { "calculate": "toNumber(datum.gni)", "as": "numGni" },
         { "calculate": "toNumber(datum.year)", "as": "yearNum" }
@@ -220,8 +222,8 @@
           "mark": {
             "type": "text",
             "fontSize": 100,
-            "x": 520,
-            "y": 500,
+            "x": 470,
+            "y": 350,
             "opacity": 0.06
           },
           "encoding": { "text": { "field": "yearNum" } }
@@ -232,13 +234,13 @@
               "field": "population",
               "type": "quantitative",
               "scale": { "type": "log", "zero": false },
-              "axis": { "title": "Population" }
+              "axis": { "title": "Population", "titleFontSize": 12 }
             },
             "y": {
               "field": "numGni",
               "type": "quantitative",
               "scale": { "type": "log", "zero": false },
-              "axis": { "title": "GNI per Capita (US$)" }
+              "axis": { "title": "GNI per Capita (US$)", "titleFontSize": 12 }
             }
           },
           "layer": [
@@ -364,5 +366,10 @@
         }
       ]
     }
-  ]
+  ],
+  "config": {
+    "title": {
+      "fontSize": 16
+    }
+  }
 }

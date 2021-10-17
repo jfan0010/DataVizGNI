@@ -5,6 +5,7 @@
   },
   "width": 500,
   "height": 300,
+  "title": "Will GNI Affect Happiness and Peace?",
   "background": "#f8f8ff",
   "transform": [
     { "calculate": "toNumber(datum.gni)", "as": "GNI per Capita (US$)" },
@@ -54,7 +55,8 @@
             "zindex": 1,
             "labelFontSize": 11,
             "title": "Region",
-            "titleFontSize": 12
+            "titleFontSize": 12,
+            "padding": 10
           }
         },
         "detail": { "type": "nominal", "field": "index" },
@@ -158,6 +160,9 @@
     "style": {
       "label": { "baseline": "middle", "align": "right", "dx": -5 },
       "tick": { "orient": "horizontal" }
+    },
+    "title": {
+      "fontSize": 16
     }
   }
 }
