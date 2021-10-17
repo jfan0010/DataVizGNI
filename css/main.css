@@ -75,3 +75,14 @@ p{
 .prevent-overlap{
   z-index: 10;
 }
+
+/* .copyright-text{
+  position: absolute;
+  right: 0;
+} */
+
+.copyright{
+  text-align: right;
+  padding-right: 150px;
+  font-size: small;
+}
