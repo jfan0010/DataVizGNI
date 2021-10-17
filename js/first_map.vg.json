@@ -3,7 +3,7 @@
   "params": [
     {
       "name": "year_selection",
-      "value": 2005,
+      "value": 2012,
       "bind": {
         "input": "range",
         "min": 1965,
@@ -16,9 +16,8 @@
   "background": "#f8f8ff",
   "vconcat": [
     {
-      "width": 1000,
-      "height": 800,
-      
+      "width": 900,
+      "height": 500,
       "projection": { "type": "equirectangular" },
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/js/ne_110m_admin_0_countries.topojson",
@@ -191,9 +190,10 @@
               "title": "GNI per Capita",
               "legend": {
                 "direction": "vertical",
-                "orient": "top-right",
+                "orient": "right",
                 "zindex": 1,
-                "offset": 25
+                "titleFontSize": 12,
+                "labelFontSize": 11
               }
             },
             "tooltip": { "field": "noteWithData" }
@@ -205,7 +205,7 @@
       "data": {
         "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combinedClean.csv"
       },
-      "width": 1000,
+      "width": 950,
       "height": 1000,
       "transform": [
         { "calculate": "toNumber(datum.gni)", "as": "numGni" },
@@ -283,17 +283,28 @@
                 }
               ],
               "transform": [{ "filter": "year_selection == datum.yearNum" }],
-              "mark": { "type": "circle", "size": 100, "opacity": 0.9 },
+              "mark": { "type": "point", "size": 150, "opacity": 0.9 },
               "encoding": {
                 "color": {
                   "field": "region",
                   "title": "Region",
+                  "type": "nominal",
                   "legend": {
                     "direction": "vertical",
                     "orient": "top-right",
                     "zindex": 1,
-                    "offset": 25
+                    "offset": 25,
+                    "titleFontSize": 12,
+                    "labelFontSize": 11,
+                    "fillColor": "white",
+                    "padding": 10
                   }
+                },
+                "shape": {
+                  "field": "region",
+                  "title": "Region",
+                  "type": "nominal",
+                  "legend": null
                 }
               }
             },
@@ -321,7 +332,11 @@
               },
               "encoding": {
                 "text": { "field": "countryName" },
-                "color": { "field": "region", "title": "Region" }
+                "color": {
+                  "field": "region",
+                  "title": "Region",
+                  "legend": null
+                }
               }
             },
             {

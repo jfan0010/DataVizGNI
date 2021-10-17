@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/jfan0010/DataVizGNI/main/data/combined2018.csv"
   },
-  "width": 600,
+  "width": 500,
   "height": 300,
   "background": "#f8f8ff",
   "transform": [
@@ -45,7 +45,18 @@
     {
       "mark": "line",
       "encoding": {
-        "color": { "type": "nominal", "field": "region" },
+        "color": {
+          "type": "nominal",
+          "field": "region",
+          "legend": {
+            "direction": "horizontal",
+            "orient": "bottom",
+            "zindex": 1,
+            "labelFontSize": 11,
+            "title": "Region",
+            "titleFontSize": 12
+          }
+        },
         "detail": { "type": "nominal", "field": "index" },
         "opacity": { "value": 0.3 },
         "x": { "type": "nominal", "field": "key" },
