@@ -91,3 +91,8 @@ p{
   padding-right: 150px;
   font-size: small;
 }
+
+.formula{
+  font-weight: bold;
+  text-align: center;
+}
