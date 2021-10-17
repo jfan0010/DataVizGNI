@@ -177,7 +177,7 @@
             { "calculate": "toNumber(datum.rawGni)", "as": "gni" },
             { "filter": "datum.year == year_selection" },
             {
-              "calculate": "'In ' + year_selection + ', you can earn ' + datum.gni + ' US$ a year on average in '+ datum.properties.NAME + '.'",
+              "calculate": "'In ' + year_selection + ', you can earn US$ ' + datum.gni + ' a year on average in '+ datum.properties.NAME + '.'",
               "as": "noteWithData"
             }
           ],
